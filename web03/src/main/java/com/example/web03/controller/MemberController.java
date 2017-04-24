@@ -28,7 +28,7 @@ public class MemberController {
 		System.out.println("현재 시각:" + time);
 		//void의 경우 method 이름과 동일한 페이지로 이동
 		// getTime.jsp
-		//모델애 변수 추가
+		// 모델애 변수 추가
 		model.addAttribute("time", time);
 	}
 	
@@ -47,6 +47,7 @@ public class MemberController {
 			System.out.println(vo.getEmail());
 			int result = memberDao.insertMember(vo);
 			if (result > 0) {
+				
 				System.out.println("insert 성공");
 				session.setAttribute("userid", vo.getUserid());
 				session.setAttribute("username", vo.getUsername());
