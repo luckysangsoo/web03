@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않는 네임스페이스 기재 -->
+<mapper namespace="member">
+	<select id="getTime" resultType="String">
+		select sysdate from dual
+	</select>
+	<!-- 회원 정보를 테이블에 저장 -->
+	<insert id="inserMember">
+		insert into tbl_member
+			(userid,userpw,username,email) values
+			( #{userid}, #{userpw}, #{username}, #{email} )
+	</insert>
+	
+	<select id="memberList" resultType="com.example.web03.model.dto.MemberVO">
+	     select * from tbl_member 
+	     order by username
+	 </select>
+	 
+	 <select id="memberInfo" resultType="com.example.web03.model.dto.MemberVO">
+	 	select * from tbl_member where userid=#{userid}
+	 </select>
+	
+	 <select id="pwdCheck" resultType="int">
+	 	select count(*) from tbl_member where userid=#{userid} and userpw=#{userpw}
+	 </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
