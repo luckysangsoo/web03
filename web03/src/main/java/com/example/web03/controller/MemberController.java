@@ -66,8 +66,7 @@ public class MemberController {
 	
 	@RequestMapping("/member/memberList")
 	public void memberList(Model model){
-		// dao 호출
-		// 모델에 저장
+		// dao 호출 , 모델에 저장
 		model.addAttribute("list", memberDao.memberList());
 		// 리턴 타입이 void 인 경우에는 JSP로 포워딩
 		// /WEB-INF/views/member/memberList.jsp 로 포워딩
